@@ -1,0 +1,20 @@
+tracker = cv2.TrackerCSRT_create()
+returned, img = video.read()
+
+-------------------------------------
+bbox = cv2.selectROI("Rastreando", img, False)
+
+tracker.init(img, bbox)
+print(bbox)
+
+----------------------------------
+
+    success, bbox = tracker.update(img)   
+
+    if success:
+        drawBox(img, bbox)
+    else:
+        cv2.putText(img, "Perdido", (75,90), cv2.FONT_HERSHEY_SIMPLEX, 0.7,(0,0,255), 2)
+       
+----------------------------------------------------------------------------------------------
+
